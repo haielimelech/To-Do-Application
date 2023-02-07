@@ -1,7 +1,6 @@
 const Auth = () => {
     return (
       <div>
-      Hai Elimelech
       </div>
     )
   }
