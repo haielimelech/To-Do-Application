@@ -13,9 +13,9 @@ const ListHeader=({listName}) => {
           <button className="signout" onClick={signOut}>SIGN OUT</button>
         </div>
 
-        <div>
-          <Modal/>
-        </div>
+      <div>
+        <Modal/>
+      </div>
       </div>
     )
   }

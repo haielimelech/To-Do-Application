@@ -75,17 +75,17 @@ margin-top:50px ;
 
 .signout{
     border: 1.5px solid rgb(255, 175, 163);
-    background-color: rgb(255, 175, 163) !important;
+    background-color: rgb(255, 175, 163) ;
     color:rgb(234, 234, 234);
 }
 .signout:hover{
-    background-color: rgb(175, 94, 94) !important;
+    background-color: rgb(175, 94, 94) ;
     border: 1.5px solid rgb(175, 94, 94);
 }
 
 .signout:active{
-    border:1.5px solid rgb(175, 81, 81)  !important;
-    background-color: rgb(175, 81, 81)  !important;
+    border:1.5px solid rgb(175, 81, 81)  ;
+    background-color: rgb(175, 81, 81) ;
     color:rgb(255, 255, 255);
 }
 
@@ -95,6 +95,7 @@ input{
    border-radius: 12px;
    border: 1.5px solid rgb(230, 232, 236);
 }
+
 
 /* List Header */
 .list-header{
@@ -127,7 +128,7 @@ input{
 }
 
 /* MODAL */
-
+/*
 .overlay{
     position: absolute;
     left: 0;
@@ -169,3 +170,5 @@ input{
 .modal .label{
     font-size: 13px;
 }
+
+*/
