@@ -15,10 +15,11 @@ const ListHeader=({listName}) => {
      
 
       <div>
-        <Modal/>
+       <Modal/>
       </div>
       </div>
-    )
-  }
+      </div>
+      )}
+    
   
   export default ListHeader

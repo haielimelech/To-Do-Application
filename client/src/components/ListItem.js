@@ -10,7 +10,6 @@ const ListItem=({task}) => {
           <p className="task-title">{task.title}</p>
           <ProgressBar/>
        </div>
-
        <div className='button-container'>
        <button className='edit'>EDIT</button>
        <button className='delete'>DELETE</button>
