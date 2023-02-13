@@ -1,7 +1,6 @@
 import { useState } from "react"
 
-const Modal=() => {
-  const mode = 'create'
+const Modal=({mode,setShowModal}) => {
   const editMode = mode === "edit" ? true : false 
   const[data,setData]= useState({
     user_email:"",
@@ -10,8 +9,16 @@ const Modal=() => {
     date: editMode ? "" : new Date()
   })
    
-   const handleChange =() => {
-    console.log('changing!')
+   const handleChange =(e) => {
+    console.log('changing!',e)
+    const {name,value} = e.target
+
+    setData(data =>({
+      ...data,
+      [name] : value
+    }))
+
+    console.log(data)
    } 
   
       return (
@@ -19,7 +26,7 @@ const Modal=() => {
         <div className="modal">
           <div className="form-title-container">
             <h3>Let's {mode} your task</h3>
-            <button>X</button>
+            <button onClick={()=> setShowModal(false)}>X</button>
           </div> 
   
           <form> 
@@ -28,11 +35,11 @@ const Modal=() => {
                   maxLength={30}
                   placeholder =" Your Task goes here"
                   name="title"
-                  value={""}
+                  value= {data.title}
                   onChange={handleChange}
                 />
                 <br/>
-                <label for="rage">Drag to select your current progress</label>
+                <label for = "rage" >Drag to select your current progress</label>
                 <input
                   required
                   type="range"
@@ -40,7 +47,7 @@ const Modal=() => {
                   min="0"
                   max="100"
                   name="progress"
-                  value={""}
+                  value={data.progress}
                   onChange={handleChange}
                 />
                 <input className={mode} type = "submit"/>

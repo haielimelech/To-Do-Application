@@ -159,15 +159,15 @@ input{
     background-color: transparent;
 }
 
-.modal .form-title-container button:active{
+.modal.form-title-container button:active{
     color: rgb(255, 50, 50);
 }
 
-.modal .form{
+.modal form{
     display: flex;
     flex-direction: column;
 }
-.modal .label{
+.modal label{
     font-size: 13px;
 }
 

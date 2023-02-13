@@ -14,6 +14,7 @@ const ListItem=({task}) => {
        <button className='edit'>EDIT</button>
        <button className='delete'>DELETE</button>
        </div>
+          
 
       </li>
     )
