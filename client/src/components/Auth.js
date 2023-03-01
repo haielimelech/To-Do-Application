@@ -15,12 +15,10 @@ const Auth = () => {
   const viewLogin = (status) => {
     setError(null)
     setIsLogIn(status)
-
   }
 
   const handleSubmit = async (e,endPoint) => {
     e.preventDefault()
-    console.log("bla")
     if(!isLogIn && password !== confirmPassword) 
     {
       setError('Make sure passwords match!')

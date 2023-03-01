@@ -13,7 +13,6 @@ app.use(express.json())
 
 app.get('/todos/:userEmail',async(req,res)=>{
     const { userEmail }= req.params
-    console.log(userEmail)
     try{
       const todos = await pool.query(`SELECT * FROM todos WHERE user_email = $1`,[userEmail])
       res.json(todos.rows) 
@@ -77,7 +76,6 @@ app.post('/signup',async (req,res)=>{
 
   } catch (err) {
     console.error(err)
-    
   }
 })
 
@@ -86,7 +84,18 @@ app.post('/signup',async (req,res)=>{
 app.post('/login',async (req,res)=>{
   const {email,password} = req.body
   try {
-    
+   const users= await pool.query('SELECT * FROM users WHERE email = $1', [email])
+
+   if(!users.rows.length) return res.json({ detail : 'User does not exist!'})
+
+   const success = await bcrtpt.compare(password,users.rows[0].hashed_password)
+   const token = jwt.sign({email}, 'secret' , {expiresIn: '1hr'})
+
+   if(success) {
+    res.json({ 'email' : users.rows[0].email,token})
+   }else{
+    res.json({detail : "Login failed"})
+   }
   } catch (err) {
     console.error(err)
     if(err){
@@ -94,5 +103,6 @@ app.post('/login',async (req,res)=>{
     }
   }
 })
+
 
 app.listen(PORT,()=>console.log( "server running on PORT 8000"))
